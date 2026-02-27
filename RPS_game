@@ -14,11 +14,11 @@ def RPS():
         print("Welcome to Rock Paper Scissor!")
         print("Choose Difficulty: ")
         RPS_input = input("Press E for easy, M for medium, I for impossible and Q to quit: ").upper()
-        if RPS_input != "E" or RPS_input != "M" or RPS_input != "I":
+        if RPS_input not in ["E", "M", "I"]:
             print("Invalid input! Please try again!")
             continue
         user_choice = input("Enter R to chose Rock \nEnter P to chose Paper \nEnter S to chose Scissor ").upper()
-        if user_choice != "R" or RPS_input != "P" or RPS_input != "S":
+        if RPS_input not in ["R", "P", "S"]:
             print("Invalid input! Please try again!")
             continue
         print(f"You chose: " + RPS_choices[user_choice])
