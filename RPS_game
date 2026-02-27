@@ -1,0 +1,74 @@
+import random
+import sys
+user_input = ""
+def start_menu():
+    print("Welcome to the Arcade! \n What game would you like to play today?")
+    print('Enter "RPS" to play Rock Paper Scissors \n'
+          'Enter "Q" to quit')
+    user_input = input().upper()
+    return user_input
+
+def RPS():
+    RPS_choices = {"R": "Rock", "P": "Paper", "S": "Scissor"}
+    while True:
+        print("Welcome to Rock Paper Scissor!")
+        print("Choose Difficulty: ")
+        RPS_input = input("Press E for easy, M for medium, I for impossible and Q to quit: ").upper()
+        if RPS_input != "E" or RPS_input != "M" or RPS_input != "I":
+            print("Invalid input! Please try again!")
+            continue
+        user_choice = input("Enter R to chose Rock \nEnter P to chose Paper \nEnter S to chose Scissor ").upper()
+        if user_choice != "R" or RPS_input != "P" or RPS_input != "S":
+            print("Invalid input! Please try again!")
+            continue
+        print(f"You chose: " + RPS_choices[user_choice])
+        if RPS_input == "E":
+            if user_choice == "R":
+                print("Computer chose: Scissor, You Won!!!")
+                continue
+            if user_choice == "P":
+                print("Computer chose: Rock, You Won!!!")
+                continue
+            if user_choice == "S":
+                print("Computer chose: Paper, You Won!!!")
+                continue
+        elif RPS_input == "M":
+            computer_choice = ("Rock", "Paper", "Scissor")
+            comp = random.choice(computer_choice)
+            if comp == RPS_choices[user_choice]:
+                print(f"Computer chose: {comp}, It's a draw")
+            elif comp == "Rock" and RPS_choices[user_choice] == "Paper":
+                print(f"Computer chose: {comp}, You Won!!!")
+            elif comp == "Rock" and RPS_choices[user_choice] == "Scissor":
+                print(f"Computer chose: {comp}, You Lost!")
+            elif comp == "Paper" and RPS_choices[user_choice] == "Rock":
+                print(f"Computer chose: {comp}, You Lost!")
+            elif comp == "Paper" and RPS_choices[user_choice] == "Scissor":
+                print(f"Computer chose: {comp}, You Won!!!")
+            elif comp == "Scissor" and RPS_choices[user_choice] == "Rock":
+                print(f"Computer chose: {comp}, You Won!!!")
+            elif comp == "Scissor" and RPS_choices[user_choice] == "Paper":
+                print(f"Computer chose: {comp}, You Lost!")
+        elif RPS_input == "I":
+            if user_choice == "R":
+                print("Computer chose: Paper, You Lost!")
+            elif user_choice == "P":
+                print("Computer chose: Scissor, You Lost!")
+            elif user_choice == "S":
+                print("Computer chose: Rock, You Lost!")
+        else:
+            print("Hope you enjoyed!!")
+            break
+
+def Q():
+    print("Bye Bye!")
+    sys.exit(0)
+user_input = start_menu()
+if user_input == "RPS":
+    RPS()
+elif user_input == "Q":
+    Q()
+else:
+    print("Invalid Input!!")
+
+
